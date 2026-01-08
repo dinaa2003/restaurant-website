@@ -1,0 +1,1341 @@
+
+/* =========================================================
+   ROOT COLORS & FONTS
+========================================================= */
+
+:root {
+  --sage: #9BAF97;
+  --sage-dark: #7A8F7C;
+  --dark: #0f0f0f;
+  --dark2: #181818;
+  --muted: #cfcfcf;
+}
+
+/* GLOBAL */
+body {
+  background: var(--dark);
+  color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  color: var(--sage);
+  font-size: 2.4rem;
+}
+
+.text-muted-light {
+  color: var(--muted);
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.nav-dark-custom {
+  background: var(--dark);
+}
+
+.fs-logo {
+  color: var(--sage);
+  font-size: 34px;
+  font-family: "Playfair Display", serif;
+}
+.fs-light {
+  color: white;
+}
+
+.nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+}
+.nav-link:hover {
+  color: var(--sage) !important;
+}
+/* Breathing Glow Animation Stronger */
+@keyframes heroGlowPulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+  50% { transform: translate(-50%, -50%) scale(1.12); opacity: 0.90; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.55; }
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,140,0,0.45), rgba(0,0,0,0) 70%);
+  top: 50%;
+  left: 58%;
+  transform: translate(-50%, -50%);
+  filter: blur(95px);
+  z-index: 0;
+
+  /* ✨ Animation */
+  animation: heroGlowPulse 5s ease-in-out infinite;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75); /* خلفية شفافة */
+    backdrop-filter: blur(6px);       /* ضباب خفيف */
+    -webkit-backdrop-filter: blur(6px);
+    transition: background 0.3s ease;
+}
+
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero-section {
+    background: #0f0f0f;
+    padding: 100px 0;
+    position: relative;
+}
+
+/* تنسيق الكونتينر الداخلي */
+.hero-container {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+}
+
+/* =======================
+   LEFT TEXT
+======================== */
+
+.hero-text {
+    flex: 1;
+    color: white;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    opacity: 0.85;
+    margin-bottom: 8px;
+}
+
+.hero-desc {
+    max-width: 500px;
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.hero-buttons a {
+    margin-right: 12px;
+}
+
+.hero-note {
+    margin-top: 12px;
+    color: #ffc8c8;
+    font-size: 0.95rem;
+}
+
+/* =======================
+   IMAGE + GLOW
+======================== */
+
+.hero-image-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    position: relative;
+    z-index: 2;
+}
+
+/* 🔥 GLOW خلف الصورة */
+.hero-glow {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 120, 20, 0.55),
+        rgba(255, 120, 20, 0.18) 50%,
+        rgba(255, 120, 20, 0) 80%
+    );
+    border-radius: 50%;
+    filter: blur(80px);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* =======================
+   RESPONSIVE
+======================== */
+
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-desc {
+        margin: auto;
+    }
+
+    .hero-glow {
+        top: 55%;
+        left: 50%;
+        width: 600px;
+        height: 600px;
+    }
+}
+/* ============================
+   ABOUT SECTION – NEW CARD STYLE
+============================ */
+
+.about-section {
+    background: var(--dark2);
+    padding: 70px 0;
+    border-radius: 20px;
+}
+
+/* الكارد */
+.about-box {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.about-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+}
+
+/* عنوان الكارد */
+.about-box h4 {
+    color: var(--sage);
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+/* الأيقونة */
+.about-icon {
+    font-size: 40px;
+    color: var(--sage);
+}
+
+/* النص */
+.about-box p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+/* =========================================================
+   WHY CHOOSE US
+========================================================= */
+.why-box {
+  background: var(--dark2);
+  border-radius: 18px;
+  transition: 0.3s ease;
+  padding: 20px;
+}
+.why-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.why-icon {
+  font-size: 32px;
+  color: var(--sage);
+}
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section {
+    background: var(--dark);
+    padding: 60px 0;
+}
+
+.contact-box {
+    background: var(--dark2);
+    border-radius: 18px;
+    padding: 25px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.contact-box h4 {
+    color: var(--sage);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.contact-box p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.text-sage {
+    color: var(--sage);
+    font-weight: 500;
+}
+
+.text-sage:hover {
+    color: var(--sage-dark);
+}
+
+/* ============================
+   BUTTONS
+============================ */
+
+.btn-sage {
+    background: var(--sage);
+    color: #000;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-sage:hover {
+    background: var(--sage-dark);
+    color: #000;
+}
+
+.btn-outline-sage {
+    border: 2px solid var(--sage);
+    color: var(--sage);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-outline-sage:hover {
+    background: var(--sage);
+    color: #000;
+}
+
+/* ============================
+   MAP BOX
+============================ */
+
+.ratio iframe {
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 768px) {
+    .contact-box {
+        text-align: center;
+    }
+
+    .d-flex {
+        justify-content: center;
+    }
+}
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer-dark {
+  background: #0d0d0d;
+}
+
+/* =========================================================
+   FEATURED DISHES (ABOUT US IMAGES)
+========================================================= */
+
+.featured-dishes {
+    margin-top: 60px;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.dish-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.dish-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔥 Featured dishes images – CIRCLES */
+.dish-img {
+    width: 430px;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish-img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.35);
+}
+
+.dish-title {
+    margin-top: 12px;
+    color: #e4e4e4;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.featured-dishes {
+margin-bottom: 80px;
+}
+
+.featured-title {
+    text-align: center;
+    color: var(--sage);  /* Sage Green */
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    margin-bottom: 35px;
+    margin-top: 20px;
+}
+.featured-dishes .section-title {
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.featured-dishes .section-title {
+    color: var(--sage) !important;
+    text-shadow: 0 0 8px rgba(155, 175, 151, 0.25);
+}
+
+/* ================================ */
+/*        MENU SECTION STYLE        */
+/* ================================ */
+
+.menu-section {
+    padding: 80px 0;
+    text-align: center;
+    background: #0f0f0f; /* Dark background matches site */
+}
+
+/* Elegant Title */
+.menu-title {
+    font-size: 52px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #cdddc8; /* Soft sage green */
+    margin-bottom: 45px;
+    letter-spacing: 1px;
+}
+
+/* Grid layout */
+.menu-grid {
+    width:75%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+/* ================================ */
+/*            MENU CARD             */
+/* ================================ */
+
+.menu-card {
+    background: #151515;
+    border: 1px solid #a8c0a3;
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    transition: 0.28s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Image — square, calm, no distortion */
+.menu-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;      /* مربع */
+    object-fit: cover;        /* قص أنيق بدون ضغط */
+    object-position: center;
+    border-radius: 12px;
+    display: block;
+}
+
+/* Title under image */
+.menu-card h4 {
+    margin-top: 14px;
+    font-size: 18px;
+    color: #e9f3e6;
+    font-weight: 500;
+}
+
+/* Hover — soft & elegant */
+.menu-card:hover {
+    transform: translateY(-4px);
+    border-color: #cfe5ca;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.55);
+}
+
+/* ================================ */
+/*            RESPONSIVE            */
+/* ================================ */
+
+@media (max-width: 900px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    /* Optional: slightly rectangular on mobile for comfort */
+    .menu-card img {
+        aspect-ratio: 4 / 3;
+    }
+}
+/* ================================ */
+/*            GLOBAL STYLE          */
+/* ================================ */
+
+body {
+    margin: 0;
+    background: #0f0f0f;
+    color: #e9f3e6;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== BACK BUTTON FIX ===== */
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #cdddc8;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(155,175,151,0.15);
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+/* ===== BACK BUTTON CONTAINER ===== */
+.back-container {
+  width: 88%;
+  margin: 24px auto 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+/* ================================ */
+/*          PAGE TITLE              */
+/* ================================ */
+
+.menu-title {
+    width: 88%;
+    margin: 30px auto 20px;
+    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: #cdddc8;
+}
+/* ================================ */
+/*      MENU CARD LINK RESET        */
+/* ================================ */
+
+.menu-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-link h4 {
+    text-decoration: none;
+    color: #e9f3e6;
+}
+
+.menu-link:hover h4 {
+    text-decoration: none;
+}
+/* ================================ */
+/*         DESSERTS LAYOUT          */
+/* ================================ */
+
+.desserts-layout {
+    width: 88%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ================================ */
+/*         LEFT SIDE (TEXT)         */
+/* ================================ */
+
+.desserts-text {
+    text-align: left;
+}
+
+.dessert-item {
+    margin-bottom: 30px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #333;
+}
+
+.dessert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dessert-name {
+    font-size: 20px;
+    color: #f1f6ef;
+    font-weight: 500;
+}
+
+.dessert-price {
+    font-size: 18px;
+    color: #f5faf4;
+    font-weight: 600;
+}
+
+.dessert-desc {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #b7c9b2;
+    font-style: italic;
+}
+
+/* Right side images */
+.desserts-images {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    margin-top: -20px; /* يطلع الصور لفوق شوي */
+}
+
+/* Main image (Custard) */
+.main-dessert {
+    width: 90%;
+    max-width: 260px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Smaller images */
+.small-dessert {
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    align-self: center;
+}
+
+
+/* ================================ */
+/*            RESPONSIVE            */
+/* ================================ */
+
+@media (max-width: 900px) {
+    .desserts-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .desserts-images {
+        margin-top: 30px;
+    }
+
+    .menu-title {
+        font-size: 34px;
+    }
+}
+/* ================================ */
+/*        SANDWICHES LAYOUT         */
+/* ================================ */
+
+.sandwiches-layout {
+    width: 88%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Left text */
+.sandwiches-text {
+    text-align: left;
+}
+
+.sandwich-item {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #333;
+}
+
+.sandwich-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sandwich-name {
+    font-size: 20px;
+    color: #e9f3e6;
+    font-weight: 500;
+}
+
+.sandwich-price {
+    font-size: 18px;
+    color: #cdddc8;
+}
+
+.sandwich-desc {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #b7c9b2;
+    font-style: italic;
+}
+
+/* Right image */
+.sandwiches-image img {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .sandwiches-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sandwiches-image {
+        margin-top: 30px;
+    }
+}
+/* ================================ */
+/*            TRAYS PAGE            */
+/* ================================ */
+
+.trays-layout {
+    width: 88%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Text side */
+.trays-list {
+    text-align: left;
+}
+
+.tray-item {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #333;
+}
+
+.tray-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tray-name {
+    font-size: 20px;
+    color: #dfeee0;
+    font-weight: 600;
+}
+
+.tray-price {
+    font-size: 18px;
+    color: #eaf3e8;
+    background: rgba(205, 221, 200, 0.15);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.tray-desc {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #9fb29b;
+    font-style: italic;
+}
+
+/* Includes box */
+.tray-includes {
+    margin-top: 30px;
+    background: #151515;
+    border: 1px solid #2f3f35;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.tray-includes h3 {
+    margin-bottom: 14px;
+    font-size: 20px;
+    color: #cdddc8;
+}
+
+.tray-includes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tray-includes li {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #e9f3e6;
+}
+
+/* Images side */
+.trays-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.trays-images img {
+    width: 200%;
+    max-width: 250px;
+    aspect-ratio: 4/ 4;
+    object-fit: cover;
+    border-radius: 19px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .trays-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .trays-images {
+        margin-top: 30px;
+    }
+}
+/* ================================ */
+/*          PLATES CARDS            */
+/* ================================ */
+
+.plates-cards {
+    width: 88%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.plate-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #151515;
+    border: 1px solid #2f3f35;
+    border-radius: 16px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.plate-info {
+    max-width: 65%;
+}
+
+.plate-info h4 {
+    font-size: 20px;
+    color: #dfeee0;
+    margin-bottom: 6px;
+}
+
+.plate-price {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    color: #eaf3e8;
+    background: rgba(205,221,200,0.15);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.plate-info p {
+    font-size: 14px;
+    color: #9fb29b;
+    font-style: italic;
+}
+
+.plate-card img {
+    
+    height: 190px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .plate-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .plate-info {
+        max-width: 200%;
+    }
+
+    .plate-card img {
+        width: 100%;
+        height: 400px;
+    }
+}
+/* ============================= */
+/*   MOBILE SAFETY IMPROVEMENTS  */
+/*   iOS Safari Scroll Fix       */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  /* منع أي scroll أفقي خفي */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* تخفيف مشاكل blur بدون إلغاء الشكل */
+  .navbar {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* تثبيت عناصر الهيرو */
+  .hero-section {
+    overflow: hidden;
+  }
+
+  /* إيقاف الـ hover الوهمي على الموبايل */
+  .menu-card:hover,
+  .dish-img:hover,
+  .about-box:hover,
+  .why-box:hover,
+  .plate-card:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+
+  /* تخفيف الحمل عن الغلو (بدون حذفه) */
+  .hero-glow {
+    animation: none;
+    opacity: 0.5;
+    filter: blur(70px);
+  }
+
+  /* منع إعادة رسم الصور */
+  img {
+    will-change: auto;
+  }
+}
+/* ===== GLOBAL MENU TYPOGRAPHY FIX ===== */
+
+/* عناوين الأقسام (Desserts, Plates, etc.) */
+.menu-title,
+section h1,
+section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-bottom: 22px;
+}
+
+/* اسم الوجبة */
+.menu-item h4 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* وصف الوجبة */
+.menu-item p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* السعر */
+.price {
+  font-size: 15px;
+  font-weight: 600;
+}
+/* =========================================================
+   ROOT COLORS & FONTS
+========================================================= */
+
+:root {
+  --sage: #9BAF97;
+  --sage-dark: #7A8F7C;
+  --dark: #0f0f0f;
+  --dark2: #181818;
+  --muted: #cfcfcf;
+}
+
+/* GLOBAL */
+body {
+  background: var(--dark);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+.nav-dark-custom {
+  background: var(--dark);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.fs-logo {
+  color: var(--sage);
+  font-size: 34px;
+  font-family: "Playfair Display", serif;
+}
+
+.fs-light {
+  color: white;
+}
+
+.nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--sage) !important;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-section {
+  background: #0f0f0f;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+.hero-desc {
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.hero-image {
+  width: 350px;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #cdddc8;
+  padding: 10px 18px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.back-btn:hover {
+  background: rgba(155,175,151,0.18);
+  transform: translateX(-3px);
+}
+
+/* =========================================================
+   MENU SECTIONS
+========================================================= */
+
+.menu-title {
+  width: 88%;
+  margin: 30px auto 28px;
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: #cdddc8;
+}
+
+/* =======================
+   TEXT IMPROVEMENTS
+======================= */
+
+.dessert-name,
+.sandwich-name,
+.tray-name,
+.menu-item h4 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.dessert-price,
+.sandwich-price,
+.tray-price,
+.price {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.dessert-desc,
+.sandwich-desc,
+.tray-desc,
+.menu-item p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* =======================
+   DESSERTS
+======================= */
+
+.desserts-layout {
+  width: 88%;
+  margin: 40px auto;
+}
+
+.desserts-images {
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+.desserts-images img {
+  width: 48%;
+  max-width: 240px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* =======================
+   SANDWICHES (unchanged layout)
+======================= */
+
+.sandwiches-image img {
+  border-radius: 16px;
+}
+
+/* =======================
+   TRAYS
+======================= */
+
+.trays-images {
+  margin-top: 26px;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.trays-images img {
+  border-radius: 16px;
+}
+
+/* =======================
+   PLATES – NOT TOUCHED
+======================= */
+/* intentionally untouched */
+
+/* =========================================================
+   MOBILE FIXES
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .menu-title {
+    font-size: 28px;
+  }
+
+  .navbar {
+    backdrop-filter: blur(4px);
+  }
+
+  img {
+    will-change: auto;
+  }
+}
+@media (max-width: 900px) {
+
+  .desserts-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .desserts-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+  }
+
+  .desserts-images img {
+    max-width: 45%;
+  }
+}
+/* ============================= */
+/*  TRAYS MOBILE REORDER FIX     */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .trays-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* النص + Appetizers فوق */
+  .trays-list {
+    order: 1;
+  }
+
+  .tray-includes {
+    order: 2;
+    margin-top: 25px;
+  }
+
+  /* الصور تنزل تحت */
+  .trays-images {
+    order: 3;
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .trays-images img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+
+  .trays-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trays-images {
+    order: 3;
+    margin-top: 30px;
+  }
+
+  .tray-includes {
+    order: 2;
+    margin-top: 30px;
+  }
+
+  .trays-list {
+    order: 1;
+  }
+
+}
